@@ -1,8 +1,14 @@
-param(
+param (
     [string]$ip,
     [int]$timeoutInSeconds = 600,
     [int]$retryIntervalInSeconds = 2
 )
+
+# Verificar que se proporcionó la dirección IP
+if ([string]::IsNullOrEmpty($ip)) {
+    Write-Host "¡Por favor proporciona una dirección IP válida!"
+    return
+}
 
 $startTime = Get-Date
 
